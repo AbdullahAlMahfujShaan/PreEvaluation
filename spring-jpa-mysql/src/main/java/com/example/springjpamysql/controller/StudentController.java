@@ -39,4 +39,15 @@ public Student findStudentByRegId(@PathVariable int reg_id){
     }
 
 
+
+    @PutMapping("/updateStudent")
+
+    public Student updateStudent(@RequestBody Student student){
+        return service.updateStudent(student);
+    }
+
+
+    public String deleteStudent(int reg_id){
+        return service
+    }
 }
