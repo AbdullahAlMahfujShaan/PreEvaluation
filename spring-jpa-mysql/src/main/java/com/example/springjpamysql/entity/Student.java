@@ -15,7 +15,7 @@ import java.util.Date;
 @Entity
 @Table(name = "STUDENT_TBL")
 
-public class students {
+public class Student {
 
     @Id
     @GeneratedValue
