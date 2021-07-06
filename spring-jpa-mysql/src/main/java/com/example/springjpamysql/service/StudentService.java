@@ -19,4 +19,19 @@ public class StudentService {
     public List<Student> saveStudents(List<Student> students)  {
         return repository.saveAll(students);
     }
+
+    public List<Student> getStudents(){
+        return repository.findAll();
+    }
+
+    public Student getStudentsById(int reg_id ){
+        return repository.findById(reg_id).orElse(null);
+    }
+    public Student getStudentsByNID(int nid ){
+        return repository.findByNID(nid);
+    }
+
+
+
+
 }
