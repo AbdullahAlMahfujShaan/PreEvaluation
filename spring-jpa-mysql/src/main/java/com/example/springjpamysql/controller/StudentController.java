@@ -3,9 +3,7 @@ package com.example.springjpamysql.controller;
 import com.example.springjpamysql.entity.Student;
 import com.example.springjpamysql.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +23,19 @@ public class StudentController {
     @PostMapping("/addStudents")
     public List<Student> addStudent(@RequestBody List<Student> students){
         return service.saveStudents(students);
+    }
+
+@GetMapping("/students")
+    public List<Student> findAllStudents(){
+        return service.getStudents();
+    }
+@GetMapping("/student/{reg_id}")
+public Student findStudentByRegId(@PathVariable int reg_id){
+        return service.getStudentsById(reg_id);
+}
+    @GetMapping("/student/{nid}")
+    public Student findStudentByNID(@PathVariable int nid){
+        return service.getStudentsByNID(nid);
     }
 
 
