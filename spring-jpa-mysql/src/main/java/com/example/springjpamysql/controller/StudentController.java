@@ -46,8 +46,8 @@ public Student findStudentByRegId(@PathVariable int reg_id){
         return service.updateStudent(student);
     }
 
-
-    public String deleteStudent(int reg_id){
-        return service
+@DeleteMapping("/delete/{id}")
+    public String deleteStudent(@PathVariable int reg_id){
+        return service.deleteStudent(reg_id);
     }
 }
