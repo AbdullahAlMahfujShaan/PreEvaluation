@@ -7,4 +7,5 @@ public interface StudentRepository extends JpaRepository<Student,Integer> {
 
 
     Student findByNID(int nid);
+    Student deleteAllStudent();
 }

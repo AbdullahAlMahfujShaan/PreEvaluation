@@ -13,41 +13,40 @@ public class StudentController {
     @Autowired
     private StudentService service;
 
-    @PostMapping("/addStudent")
-
+    @PostMapping("/api/v1/users")
     public Student addStudent(@RequestBody Student student){
         return service.saveStudent(student);
     }
 
 
-    @PostMapping("/addStudents")
-    public List<Student> addStudent(@RequestBody List<Student> students){
-        return service.saveStudents(students);
-    }
-
-@GetMapping("/students")
+    @GetMapping("/api/v1/users")
     public List<Student> findAllStudents(){
         return service.getStudents();
     }
-@GetMapping("/student/{reg_id}")
-public Student findStudentByRegId(@PathVariable int reg_id){
+
+    @GetMapping("/api/v1/users/:id")
+    public Student findStudentByRegId(@PathVariable int reg_id){
         return service.getStudentsById(reg_id);
-}
-    @GetMapping("/student/{nid}")
+    }
+
+    @GetMapping("/api/v1/users/:nid")
     public Student findStudentByNID(@PathVariable int nid){
         return service.getStudentsByNID(nid);
     }
 
-
-
-    @PutMapping("/updateStudent")
-
+    @PutMapping("/api/v1/users/:id")
     public Student updateStudent(@RequestBody Student student){
         return service.updateStudent(student);
     }
 
-@DeleteMapping("/delete/{id}")
+    @DeleteMapping("/api/v1/users/:id")
     public String deleteStudent(@PathVariable int reg_id){
         return service.deleteStudent(reg_id);
+    }
+
+    @DeleteMapping("/api/v1/users/")
+    public String deleteAllStudent(){
+
+    return service.deleteAllStudent();
     }
 }

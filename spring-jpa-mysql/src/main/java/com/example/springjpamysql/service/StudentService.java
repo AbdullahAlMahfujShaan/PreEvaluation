@@ -19,11 +19,9 @@ public class StudentService {
     public List<Student> saveStudents(List<Student> students)  {
         return repository.saveAll(students);
     }
-
     public List<Student> getStudents(){
         return repository.findAll();
     }
-
     public Student getStudentsById(int reg_id ){
         return repository.findById(reg_id).orElse(null);
     }
@@ -35,6 +33,11 @@ public class StudentService {
         repository.deleteById(reg_id);
         return "Student Removed" +reg_id;
     }
+    public String deleteAllStudent(){
+        repository.deleteAllStudent();
+        return "All Student Removed";
+    }
+
 public Student updateStudent(Student student){
         Student existingStudent = repository.findById(student.getReg_id()).orElse(null);
         existingStudent.setFirst_name(student.getFirst_name());
