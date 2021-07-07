@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Lob
 import java.util.Date;
 
 @Data
@@ -39,7 +40,10 @@ public class Student {
     private String division;
     private int contact_no;
     private String email;
-    private int photo;
+
+    @Lob
+    private byte[] photo;
+
     private Date created_on;
     private String created_by;
     private String degree;
