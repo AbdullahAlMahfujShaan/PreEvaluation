@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.Optional.*;
 
 import java.util.List;
-import java.util.UUID;
+
 
 @Service
 public class UserService {
@@ -22,7 +22,7 @@ public class UserService {
     }
 
 
-    //AddUsers
+    //InsertData
     public User addUser(User user){
 
         //user.setUserReg_id();
@@ -33,22 +33,35 @@ public class UserService {
         return userRepository.findAll();
     }
 
-
+    //UpdateData
     public User updateUser(User user){
         return userRepository.save(user);
     }
-
+    //DeleteData
     public String deleteUser(int reg_id){
         userRepository.deleteUserById(reg_id);
         return "User Removed" +reg_id;
     }
 
-public User findUserById(int reg_id){
+    //DeleteAllData
+    public String deleteAllUser(){
+        userRepository.deleteAllUser();
+        return "All Users Removed";
+    }
+
+    public User findUserById(int reg_id){
         return userRepository.findUserById(reg_id)
                 .orElseThrow(()->new UserNotFoundException("User ID" +reg_id+ "not found!!"));
-}
+    }
+    //GetUserDataById
+    public User getUserById(int reg_id){
+        return userRepository.findById(reg_id).orElse(null);
+    }
 
-
+    //GetUserByName
+    public User getUserByName(String first_name){
+        return (User) userRepository.findByName(first_name).orElseThrow(()->new UserNotFoundException("Username" +first_name+ "not found!!"));
+    }
 
 
 }
