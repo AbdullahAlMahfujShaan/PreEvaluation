@@ -6,10 +6,13 @@ import com.mahfujshaan.asimpleuserregistration.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.UUID;
+
 @Service
 public class UserService {
 
-private final UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Autowired
     public UserService(UserRepository userRepository) {
@@ -17,9 +20,30 @@ private final UserRepository userRepository;
     }
 
 
-//AddUsers
+    //AddUsers
     public User addUser(User user){
-        
+
+        //user.setUserReg_id();
+        return userRepository.save(user);
     }
+
+    public List<User> findAllUser(){
+        return userRepository.findAll();
+    }
+
+
+public User updateUser(User user){
+        return userRepository.save(user);
+}
+
+public String deleteUser(int reg_id){
+        userRepository.deleteUserById(reg_id);
+        return "User Removed" +reg_id;
+}
+
+
+
+
+
 
 }
