@@ -6,7 +6,6 @@ import com.mahfujshaan.asimpleuserregistration.exception.UserNotFoundException;
 import com.mahfujshaan.asimpleuserregistration.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Optional.*;
 
 import java.util.List;
 
@@ -44,19 +43,16 @@ public class UserService {
     }
 
     //DeleteAllData
-    public String deleteAllUser(){
+   public String deleteAllUser(){
         userRepository.deleteAllUser();
-        return "All Users Removed";
+       return "All Users Removed";
     }
 
     public User findUserById(int reg_id){
         return userRepository.findUserById(reg_id)
                 .orElseThrow(()->new UserNotFoundException("User ID" +reg_id+ "not found!!"));
     }
-    //GetUserDataById
-    public User getUserById(int reg_id){
-        return userRepository.findById(reg_id).orElse(null);
-    }
+
 
     //GetUserByName
     public User getUserByName(String first_name){
