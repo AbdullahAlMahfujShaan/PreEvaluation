@@ -52,4 +52,18 @@ public class UserController {
         return new ResponseEntity<>(updateUser,HttpStatus.OK);
     }
 
+
+    @DeleteMapping("/api/v1/users/:id")
+    public ResponseEntity<?> deleteUser(@PathVariable("reg_id") int reg_id){
+        userService.deleteUser(reg_id);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("/api/v1/users/")
+    public String deleteAllUser(){
+
+        return userService.deleteAllUser();
+    }
+
+
 }
