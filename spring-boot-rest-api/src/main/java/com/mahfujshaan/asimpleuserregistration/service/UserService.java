@@ -23,8 +23,6 @@ public class UserService {
 
     //InsertData
     public User addUser(User user){
-
-        //user.setUserReg_id();
         return userRepository.save(user);
     }
 
@@ -37,27 +35,25 @@ public class UserService {
         return userRepository.save(user);
     }
     //DeleteData
-    public String deleteUser(int reg_id){
-        userRepository.deleteUserById(reg_id);
-        return "User Removed" +reg_id;
+    public void deleteUser(int id){
+        userRepository.deleteUserById(id);
     }
 
     //DeleteAllData
-   public String deleteAllUser(){
-        userRepository.deleteAllUser();
-       return "All Users Removed";
+    //public String deleteAllUser(){
+        //userRepository.deleteAllUser();
+       // return "All Users Removed";
+   // }
+    //
+    public User findUserById(int id){
+        return userRepository.findUserById(id).orElseThrow(()->new UserNotFoundException("User ID" +id+ "not found!!"));
     }
-
-    public User findUserById(int reg_id){
-        return userRepository.findUserById(reg_id)
-                .orElseThrow(()->new UserNotFoundException("User ID" +reg_id+ "not found!!"));
-    }
-
-
-    //GetUserByName
-    public User getUserByName(String first_name){
-        return (User) userRepository.findByName(first_name).orElseThrow(()->new UserNotFoundException("Username" +first_name+ "not found!!"));
-    }
-
-
+//
+//
+//    //GetUserByName
+    //public User findUserByName(String firstname){
+    //return userRepository.findUserByName(firstname).orElseThrow(()->new UserNotFoundException("Username" +firstname+ "not found!!"));
+    // }
+//
+//
 }

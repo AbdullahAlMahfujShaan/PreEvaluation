@@ -13,6 +13,7 @@ import java.util.Date;
 
 
 @Entity
+@IdClass(User.class)
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
@@ -23,7 +24,7 @@ public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private int reg_id;
+    private int id;
 
     @NotNull
     private int institution_id;
@@ -33,7 +34,7 @@ public class User implements Serializable {
     private int student_id;
 
     @NotNull
-    private String first_name;
+    private String firstname;
 
     @NotNull
     private String last_name;
