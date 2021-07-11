@@ -1,6 +1,7 @@
 package com.mahfujshaan.asimpleuserregistration.entity;
 import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -22,9 +23,9 @@ import java.util.Date;
 
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    private int id;
+    private int id = 10;
 
     @NotNull
     private int institution_id;
