@@ -23,9 +23,9 @@ import java.util.Date;
 
 public class User implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(nullable = false)
-    private int id = 10;
+    private int id;
 
     @NotNull
     private int institution_id;
@@ -54,7 +54,6 @@ public class User implements Serializable {
 
     @Id
     @NotNull
-    @Column(unique = true)
     private int nid;
 
 
@@ -73,8 +72,8 @@ public class User implements Serializable {
 
     private String email;
 
-    @Lob
-    private Blob photo;
+    //@Lob
+   private int photo;
 
     private Date created_on;
     private String created_by;
