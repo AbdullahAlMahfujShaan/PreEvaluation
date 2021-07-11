@@ -1,0 +1,29 @@
+export interface User {
+  id: number;
+  institution_id: number;
+  student_id: number;
+  firstname: string;
+  last_name: string;
+  reg_date: Date;
+  date_of_birth: Date;
+  age: number;
+  gender: string;
+  nid: number;
+  occupation: string;
+  present_address: string;
+  permanent_address: string;
+  street: string;
+  post_office: string;
+  upazila:string ;
+  district: string;
+  division: string;
+  contact_no: number;
+  email: string;
+  photo: HTMLPictureElement;
+  created_on: Date;
+  created_by: string;
+  degree: string;
+  institute: string;
+  completion_year: number;
+  grade: number;
+}
