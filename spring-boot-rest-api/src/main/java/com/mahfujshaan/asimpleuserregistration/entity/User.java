@@ -72,8 +72,8 @@ public class User implements Serializable {
 
     private String email;
 
-    //@Lob
-   private int photo;
+    @Lob
+   private Blob photo;
 
     private Date created_on;
     private String created_by;
